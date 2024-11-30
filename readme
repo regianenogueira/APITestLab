@@ -1,0 +1,13 @@
+/APITestLab
+│
+├── api
+│   ├── db.json                 # Banco de dados JSON para o json-server
+│   └── server.js               # Script para executar o json-server
+│
+├── tests
+│   └── ApiTest.java            # Testes automatizados da API usando Rest Assured
+│
+├── Dockerfile                   # Arquivo Dockerfile para construir a imagem
+├── docker-compose.yml           # Arquivo de configuração para Docker Compose
+├── pom.xml                     # Arquivo de configuração do Maven
+└── .dockerignore                # Arquivo para ignorar arquivos/diretórios durante a construção da imagem

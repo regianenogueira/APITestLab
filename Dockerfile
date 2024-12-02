@@ -7,8 +7,8 @@ WORKDIR /usr/src/app
 # Copiar o package.json e o package-lock.json para o diretório de trabalho
 COPY api/package*.json ./
 
-# Instalar as dependências (incluindo o JSON Server)
-RUN npm install
+# Instalar dependências
+RUN npm install --no-cache
 
 # Copiar os arquivos db.json e server.js para o diretório de trabalho
 COPY api/db.json ./
@@ -18,4 +18,4 @@ COPY api/server.js ./
 EXPOSE 3000
 
 # Comando para executar o JSON Server
-CMD ["npx", "json-server", "--watch", "db.json", "--port", "3000"]
+CMD ["node", "server.js"]

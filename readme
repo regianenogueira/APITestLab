@@ -1,13 +1,30 @@
 /APITestLab
+APITESTLAB
 │
-├── api
-│   ├── db.json                 # Banco de dados JSON para o json-server
-│   └── server.js               # Script para executar o json-server
+├── api                          # Código da API ou definições de endpoints.
+│   ├── (código da API)         # Implementação da lógica da API, como controladores e serviços.
 │
-├── tests
-│   └── ApiTest.java            # Testes automatizados da API usando Rest Assured
+├── teste                        # Pasta dedicada a testes da API.
+│   ├── java                     # Código de teste em Java.
+│   │   ├── actions              # Métodos que realizam ações específicas na API.
+│   │   ├── models               # Classes que representam dados utilizados nos testes.
+│   │   ├── runners              # Classes responsáveis por executar os testes.
+│   │   ├── services             # Serviços auxiliares com lógica reutilizável.
+│   │   └── support              # Classes de suporte com utilitários e helpers.
+│   ├── resources                # Arquivos de configuração e outros recursos de teste.
+│   │   ├── config.properties     # Configurações como URLs de API e credenciais.
+│   │   └── (outros arquivos)    # Outros arquivos necessários para configuração.
+│   ├── docker                   # Arquivos para configurar e executar o ambiente Docker.
+│   │   ├── Dockerfile           # Instruções para construir a imagem do Docker.
+│   │   └── (outros arquivos)    # Scripts ou arquivos de configuração do Docker.
 │
-├── Dockerfile                   # Arquivo Dockerfile para construir a imagem
-├── docker-compose.yml           # Arquivo de configuração para Docker Compose
-├── pom.xml                     # Arquivo de configuração do Maven
-└── .dockerignore                # Arquivo para ignorar arquivos/diretórios durante a construção da imagem
+└── README.md                    # Documentação do projeto com informações e instruções.
+
+
+# comandos docker
+
+docker ps  # Para listar os contêineres em execução
+
+docker-compose down # deve parar e remover todos os contêineres definidos no seu docker-compose.yml.
+
+docker-compose up --build # inicia os contêineres definidos no arquivo docker-compose.yml

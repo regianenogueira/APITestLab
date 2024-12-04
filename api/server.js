@@ -1,6 +1,6 @@
 const jsonServer = require('json-server');
 const server = jsonServer.create();
-const router = jsonServer.router('db.json'); // Remova 'api/' se estiver na mesma pasta
+const router = jsonServer.router('db.json');
 const middlewares = jsonServer.defaults();
 
 server.use(middlewares);
@@ -43,6 +43,53 @@ server.put('/users/:id', (req, res, next) => {
     if (existingUser && existingUser.id !== parseInt(id)) {
       return res.status(400).json({ error: 'Email já está em uso!' });
     }
+  }
+
+  next();
+});
+
+// Validação de recuperação de usuário
+server.get('/users/:id', (req, res, next) => {
+  const { id } = req.params;
+  const user = router.db.get('users').find({ id: parseInt(id) }).value();
+
+  if (!user) {
+    return res.status(404).json({ error: 'Usuário não encontrado!' });
+  }
+
+  next();
+});
+
+// Validação de exclusão de usuário
+server.delete('/users/:id', (req, res, next) => {
+  const { id } = req.params;
+  const user = router.db.get('users').find({ id: parseInt(id) }).value();
+
+  if (!user) {
+    return res.status(404).json({ error: 'Usuário não encontrado!' });
+  }
+
+  next();
+});
+
+// Similarmente, você pode adicionar validações para 'posts' se necessário
+server.get('/posts/:id', (req, res, next) => {
+  const { id } = req.params;
+  const post = router.db.get('posts').find({ id: parseInt(id) }).value();
+
+  if (!post) {
+    return res.status(404).json({ error: 'Post não encontrado!' });
+  }
+
+  next();
+});
+
+server.delete('/posts/:id', (req, res, next) => {
+  const { id } = req.params;
+  const post = router.db.get('posts').find({ id: parseInt(id) }).value();
+
+  if (!post) {
+    return res.status(404).json({ error: 'Post não encontrado!' });
   }
 
   next();

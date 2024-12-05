@@ -25,6 +25,10 @@ APITESTLAB
 
 docker ps  # Para listar os contêineres em execução
 
+doker ps -a #Listar todos os containers existentes
+
+docker start <nome_ou_id_do_container> #Iniciar um container específico
+
 docker-compose down # deve parar e remover todos os contêineres definidos no seu docker-compose.yml.
 
 docker-compose up --build # inicia os contêineres definidos no arquivo docker-compose.yml
